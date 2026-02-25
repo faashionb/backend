@@ -1,0 +1,61 @@
+<div class="container">
+  <h2>Gestión de Clientes</h2>
+  
+  <div class="form-card">
+    <h4>{{ obj.id ? 'Editando Cliente' : 'Nuevo Registro' }}</h4>
+    <form (ngSubmit)="guardar()">
+      <div class="grid-form">
+        <input [(ngModel)]="obj.nombre" name="nombre" placeholder="Nombre" required>
+        <input [(ngModel)]="obj.apellido" name="apellido" placeholder="Apellido" required>
+        <input [(ngModel)]="obj.email" name="email" placeholder="Correo Electrónico" type="email">
+        <input [(ngModel)]="obj.telefono" name="telefono" placeholder="Teléfono">
+        
+        <select [(ngModel)]="obj.pais.id" name="paisId" [disabled]="estaEditando" required>
+          <option [value]="0" disabled>Seleccionar País</option>
+          <option *ngFor="let p of paises" [value]="p.id">{{p.nombre}}</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-save">
+        {{ obj.id ? 'Actualizar Datos' : 'Registrar Cliente' }}
+      </button>
+      <button type="button" (click)="limpiar()" class="btn-clear">
+        Limpiar / Cancelar
+      </button>
+    </form>
+  </div>
+
+  <div class="search-box">
+    <label>Buscar Cliente: </label>
+    <input type="text" [(ngModel)]="textoBusqueda" placeholder="Escribí nombre o apellido...">
+  </div>
+
+  <h3>Listado Registrado</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre Completo</th>
+        <th>Email</th>
+        <th>País</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of clientesFiltrados">
+        <td>{{c.nombre}} {{c.apellido}}</td>
+        <td>{{c.email}}</td>
+        <td>
+            <span [style.color]="c.pais.nombre === 'Argentina' ? '#e91e63' : '#ad1457'" style="font-weight: bold;">
+                {{c.pais.nombre}}
+            </span>
+        </td>
+        <td>
+          <button (click)="prepararEditar(c)" class="btn-edit">Editar </button> 
+          <button (click)="eliminar(c)" class="btn-delete"> Eliminar</button>
+        </td>
+      </tr>
+      <tr *ngIf="clientesFiltrados.length === 0">
+        <td colspan="4" style="text-align: center; color: #ad1457;">No se encontraron resultados.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

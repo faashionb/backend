@@ -1,0 +1,129 @@
+/* Contenedor Principal */
+.container {
+    padding: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 1000px;
+    margin: auto;
+    background-color: #fff5f7; /* Rosa muy tenue de fondo */
+    border-radius: 15px;
+}
+
+h2, h3 {
+    color: #d63384; /* Rosa fuerte/Magenta */
+    text-align: center;
+}
+
+/* Card del Formulario */
+.form-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(214, 51, 132, 0.1);
+    border: 1px solid #f8bbd0;
+    margin-bottom: 30px;
+}
+
+.grid-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Inputs y Selects */
+input, select {
+    padding: 12px;
+    border: 2px solid #fce4ec;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #f06292;
+    box-shadow: 0 0 5px rgba(240, 98, 146, 0.4);
+}
+
+input:disabled, select:disabled {
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+    border-color: #e9ecef;
+}
+
+/* Botones */
+.btn-save {
+    background-color: #f06292;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-save:hover {
+    background-color: #e91e63;
+}
+
+.btn-clear {
+    background-color: #f8bbd0;
+    color: #880e4f;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* Buscador */
+.search-box {
+    margin-bottom: 20px;
+    background: #fce4ec;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #f8bbd0;
+}
+
+thead {
+    background-color: #f06292;
+    color: white;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #fce4ec;
+}
+
+tr:hover {
+    background-color: #fff0f5;
+}
+
+.btn-edit {
+    background-color: #f48fb1;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-delete {
+    background-color: #ec407a;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
